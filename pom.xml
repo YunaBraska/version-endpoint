@@ -4,11 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>berlin.yuna</groupId>
     <artifactId>version-endpoint</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
 
     <name>version-endpoint</name>
     <description>A simple version endpoint</description>
+    <url>${git-project.url}</url>
 
     <developers>
         <developer>
