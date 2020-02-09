@@ -5,7 +5,7 @@ sudo: false
 script: sh scripts/test.sh
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -t 95613817-25e8-4c02-89ca-ab6f67c62312
+  - bash <(curl -s https://codecov.io/bash) -t 559383fc-b245-40a1-9924-0f9188074c5d
 env:
   global:
-    - CODECOV_TOKEN=:95613817-25e8-4c02-89ca-ab6f67c62312
+    - CODECOV_TOKEN=:559383fc-b245-40a1-9924-0f9188074c5d

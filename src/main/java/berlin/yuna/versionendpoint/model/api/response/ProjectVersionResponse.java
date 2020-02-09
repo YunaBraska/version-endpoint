@@ -8,17 +8,19 @@ import java.util.Properties;
 public class ProjectVersionResponse {
 
     private final String projectName;
-    private final String projectDescription;
+    private final String projectGroup;
+    private final String projectArtifact;
     private final String projectVersion;
     private final Properties git;
 
     public ProjectVersionResponse(
             final String projectName,
-            final String projectDescription,
+            String projectGroup, final String projectArtifact,
             final String projectVersion,
             final Properties git) {
         this.projectName = projectName;
-        this.projectDescription = projectDescription;
+        this.projectGroup = projectGroup;
+        this.projectArtifact = projectArtifact;
         this.projectVersion = projectVersion;
         this.git = git;
     }
@@ -27,8 +29,8 @@ public class ProjectVersionResponse {
         return projectName;
     }
 
-    public String getProjectDescription() {
-        return projectDescription;
+    public String getProjectArtifact() {
+        return projectArtifact;
     }
 
     public String getProjectVersion() {
