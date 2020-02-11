@@ -20,8 +20,12 @@ management:
   endpoint:
     version:
       path: /internal/version
+        git:
+          include: "*"
+          exclude: tags, branch
 ```
 
+### Example
 ```json
 {
     "projectName": "!{project.artifactId}",
