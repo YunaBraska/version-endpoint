@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static io.restassured.RestAssured.given;
@@ -19,9 +20,10 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+@ActiveProfiles("path")
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class VersionControllerTest {
+public class VersionControllerWithCustomPathTest {
 
     @LocalServerPort
     private int serverPort;
@@ -37,11 +39,11 @@ public class VersionControllerTest {
     private BuildProperties buildProperties;
 
     @Test
-    public void testVersionEndpoint() {
+    public void versionEndpoint_shouldSetCustomPath() {
         final ProjectVersionResponse response = given()
                 .log().all()
                 .when()
-                .get("/version")
+                .get("/internal/version")
                 .then()
                 .log().all()
                 .statusCode(OK.value())

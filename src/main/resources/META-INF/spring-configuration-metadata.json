@@ -14,6 +14,20 @@
       "description": "Customizing the Version Endpoint Path",
       "sourceType": "berlin.yuna.versionendpoint.config.VersionConfiguration",
       "defaultValue": "/version"
+    },
+    {
+      "name": "management.endpoint.version.git.include",
+      "type": "java.lang.String",
+      "description": "List of values to expose [* = expose all]",
+      "sourceType": "berlin.yuna.versionendpoint.config.VersionConfiguration",
+      "defaultValue": "*"
+    },
+    {
+      "name": "management.endpoint.version.git.exclude",
+      "type": "java.lang.String",
+      "description": "List of values to hide [* = hide all]",
+      "sourceType": "berlin.yuna.versionendpoint.config.VersionConfiguration",
+      "defaultValue": "null"
     }
   ]
 }

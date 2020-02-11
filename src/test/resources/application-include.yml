@@ -1,0 +1,6 @@
+management:
+  endpoint:
+    version:
+      path: /internal/version
+      git:
+        include: tags, branch

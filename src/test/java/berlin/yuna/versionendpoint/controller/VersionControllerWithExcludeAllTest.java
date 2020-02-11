@@ -9,19 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+@ActiveProfiles("excludeall")
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class VersionControllerTest {
+public class VersionControllerWithExcludeAllTest {
 
     @LocalServerPort
     private int serverPort;
@@ -37,11 +38,11 @@ public class VersionControllerTest {
     private BuildProperties buildProperties;
 
     @Test
-    public void testVersionEndpoint() {
+    public void versionEndpoint_shouldExcludeAllProperties() {
         final ProjectVersionResponse response = given()
                 .log().all()
                 .when()
-                .get("/version")
+                .get("/internal/version")
                 .then()
                 .log().all()
                 .statusCode(OK.value())
@@ -53,7 +54,7 @@ public class VersionControllerTest {
         assertThat(response.getProjectGroup(), is(buildProperties.getGroup()));
         assertThat(response.getProjectArtifact(), is(buildProperties.getArtifact()));
         assertThat(response.getGit(), is(notNullValue()));
-        assertThat(response.getGit().size(), is(greaterThan(1)));
+        assertThat(response.getGit().size(), is(0));
     }
 
 }
