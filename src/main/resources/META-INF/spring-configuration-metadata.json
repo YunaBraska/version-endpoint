@@ -1,0 +1,19 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "name": "management.endpoint.version",
+      "type": "berlin.yuna.versionendpoint.config.VersionConfiguration",
+      "sourceType": "\"berlin.yuna.versionendpoint.config.VersionConfiguration"
+    }
+  ],
+  "properties": [
+    {
+      "name": "management.endpoint.version.path",
+      "type": "java.lang.String",
+      "description": "Customizing the Version Endpoint Path",
+      "sourceType": "berlin.yuna.versionendpoint.config.VersionConfiguration",
+      "defaultValue": "/version"
+    }
+  ]
+}

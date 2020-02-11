@@ -14,7 +14,7 @@ public class VersionController {
         this.versionService = versionService;
     }
 
-    @GetMapping("/version")
+    @GetMapping("${management.endpoint.version.path:/version}")
     public ProjectVersionResponse getVersion() {
         return versionService.getVersion();
     }

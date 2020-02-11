@@ -14,8 +14,16 @@
 </dependency>
 ```
 
+### Configuration
+```yaml
+management:
+  endpoint:
+    version:
+      path: /internal/version
+```
+
 ### Troubleshooting
-* Run the following command if the spring boot BuildProperties are not initialized
+* BuildProperties are not initialized: just the following command 
 ```shell script
 mvn clean compile
 ```

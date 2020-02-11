@@ -1,2 +1,2 @@
-#!/usr/bin/env
-mvn clean verify -DskipTests=true -Dbuilder -Dtag -Dupdate.major
+#!/usr/bin/env bash
+mvn clean verify -DskipTests=true -P build -Dbuilder -Dtag -Dupdate.major
