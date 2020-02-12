@@ -44,7 +44,7 @@
 <dependency>
     <groupId>berlin.yuna</groupId>
     <artifactId>version-endpoint</artifactId>
-    <version>0.2.1</version>
+    <version>0.2.2</version>
 </dependency>
 ```
 
@@ -65,10 +65,10 @@ management:
     "projectName": "version-endpoint",
     "projectGroup": "berlin.yuna",
     "projectArtifact": "version-endpoint",
-    "projectVersion": "0.2.1",
+    "projectVersion": "0.2.2",
     "git": {
         "tags": "",
-        "build.version": "0.2.1",
+        "build.version": "0.2.2",
         "closest.tag.commit.count": "20",
         "commit.user.name": "Yuna Morgenstern",
         "commit.id.abbrev": "a6729de",
@@ -81,7 +81,7 @@ management:
         "commit.id": "a6729de1f723aa3ddc84635a7cf9769dea489e17",
         "commit.message.short": "my cool commit message",
         "commit.user.email": "git@example.com",
-        "closest.tag.name": "0.2.1",
+        "closest.tag.name": "0.2.2",
         "local.branch.ahead": "0",
         "build.time": "1988-08-20T20:12:58+0100",
         "commit.time": "1988-08-20T18:22:17+0100",
