@@ -1,16 +1,21 @@
 package berlin.yuna.versionendpoint.controller;
 
+import berlin.yuna.versionendpoint.Application;
 import berlin.yuna.versionendpoint.model.api.response.ProjectVersionResponse;
 import io.restassured.RestAssured;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.context.WebApplicationContext;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -20,16 +25,16 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+@Tag("IntegrationTest")
 @ActiveProfiles("path")
-@RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class VersionControllerWithCustomPathTest {
+class VersionControllerWithCustomPathTest {
 
     @LocalServerPort
     private int serverPort;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         RestAssured.baseURI = "http://localhost";
         RestAssured.port = serverPort;
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
@@ -39,7 +44,7 @@ public class VersionControllerWithCustomPathTest {
     private BuildProperties buildProperties;
 
     @Test
-    public void versionEndpoint_shouldSetCustomPath() {
+    void versionEndpoint_shouldSetCustomPath() {
         final ProjectVersionResponse response = given()
                 .log().all()
                 .when()

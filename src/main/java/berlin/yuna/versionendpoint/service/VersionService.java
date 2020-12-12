@@ -3,6 +3,7 @@ package berlin.yuna.versionendpoint.service;
 import berlin.yuna.versionendpoint.model.api.response.ProjectVersionResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.core.io.Resource;
@@ -32,11 +33,14 @@ public class VersionService {
     private final Map<String, String> gitProperties;
 
     VersionService(
-            final BuildProperties buildProperties,
+            @Autowired(required = false) final BuildProperties buildProperties,
             final ResourceLoader resourceLoader,
             @Value("${management.endpoint.version.git.exclude:}") final String exclude,
             @Value("${management.endpoint.version.git.include:*}") final String include
     ) {
+        if (buildProperties == null) {
+            throw new IllegalStateException("Please run \"mvn compile\" first");
+        }
         this.projectName = buildProperties.getName();
         this.projectVersion = buildProperties.getVersion();
         this.projectArtifact = buildProperties.getArtifact();

@@ -14,12 +14,12 @@
 [![Size][size_shield]][size_shield]
 ![Label][label_shield]
 
-[build_shield]: https://img.shields.io/travis/YunaBraska/version-endpoint/master?style=flat-square
-[build_link]: https://travis-ci.org/YunaBraska/version-endpoint
+[build_shield]: https://github.com/YunaBraska/version-endpoint/workflows/JAVA_CI/badge.svg
+[build_link]: https://github.com/YunaBraska/version-endpoint/actions?query=workflow%3AJAVA_CI
 [maintainable_shield]: https://img.shields.io/codeclimate/maintainability/YunaBraska/version-endpoint?style=flat-square
 [maintainable_link]: https://codeclimate.com/github/YunaBraska/version-endpoint/maintainability
-[coverage_shield]: https://img.shields.io/codecov/c/github/YunaBraska/version-endpoint?style=flat-square
-[coverage_link]: https://codecov.io/gh/YunaBraska/version-endpoint?branch=master
+[coverage_shield]: https://img.shields.io/codeclimate/coverage/YunaBraska/version-endpoint?style=flat-square
+[coverage_link]: https://codeclimate.com/github/YunaBraska/version-endpoint/test_coverage
 [issues_shield]: https://img.shields.io/github/issues/YunaBraska/version-endpoint?style=flat-square
 [issues_link]: https://github.com/YunaBraska/version-endpoint/commits/master
 [commit_shield]: https://img.shields.io/github/last-commit/YunaBraska/version-endpoint?style=flat-square
@@ -39,6 +39,9 @@
 [gitter_shield]: https://img.shields.io/gitter/room/YunaBraska/nats-streaming-server-embedded?style=flat-square
 [gitter_link]: https://gitter.im/nats-streaming-server-embedded/Lobby
 
+### Requirements
+* `pl.project13.maven:git-commit-id-plugin` plugin which generates `${project.build.testOutputDirectory}/git.properties`
+* `org.springframework.boot:spring-boot-maven-plugin` plugin which generates `${project.build.outputDirectory}/META-INF/build-info.properties`
 ### How to use it
 ```xml
 <dependency>
