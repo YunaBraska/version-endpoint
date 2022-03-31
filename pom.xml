@@ -39,7 +39,7 @@
         <project.reporting.outputEncoding>${project.encoding}</project.reporting.outputEncoding>
 
         <!-- VERSIONS BUILD -->
-        <spring-boot.version>2.4.1</spring-boot.version>
+        <spring-boot.version>2.5.12</spring-boot.version>
         <rest-assured.version>4.3.3</rest-assured.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <maven-scm-plugin.version>1.11.2</maven-scm-plugin.version>
